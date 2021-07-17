@@ -1,24 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import "./index.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { jsx, css } from "@emotion/react";
+import { Global } from "@emotion/react";
+
+//components
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./components/Home/Home";
+import Footer from "./components/Footer/Footer";
+
+//screens
+import PokemonListPage from "./screens/PokemonList/PokemonListPage";
+import PokemonDetailPage from "./screens/PokemonDetail/PokemonDetailPage";
+import CatchPokemonPage from "./screens/CatchPokemon/CatchPokemonPage";
+import MyPokemonListPage from "./screens/MyPokemonList/MyPokemonListPage";
+
+import Provider from "./context/PokemonContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Global
+        styles={css`
+          * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+          }
+        `}
+      />
+      <div className="App">
+        <Navbar
+          styles={css`
+             {
+              position: fixed;
+            }
+          `}
+        />
+        <div className="Content">
+          <Switch>
+            <Provider>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route exact path="/pokemonlist">
+                <PokemonListPage />
+              </Route>
+              <Route exact path="/pokemondetail/:name">
+                <PokemonDetailPage />
+              </Route>
+              <Route exact path="/catchpokemon/:name?">
+                <CatchPokemonPage />
+              </Route>
+              <Route exact path="/mypokemonlist">
+                <MyPokemonListPage />
+              </Route>
+            </Provider>
+          </Switch>
+        </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
