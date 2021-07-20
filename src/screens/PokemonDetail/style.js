@@ -107,20 +107,33 @@ export const catchPokemonBtn = css`
   }
   text-decoration: none;
   box-shadow: 5px 10px 18px #888888;
+  @media (max-width: 500px) {
+    padding: 6px 25px;
+  }
+  @media (max-width: 300px) {
+    padding: 5px 20px;
+  }
 `;
 
 export const row4Img = css`
   width: 70px;
   height: 70px;
-  @media (max-width: 800px) {
-    width: 60px;
-    height: 60px;
+  @media (max-width: 500px) {
+    width: 50px;
+    height: 50px;
+  }
+  @media (max-width: 300px) {
+    width: 30px;
+    height: 30px;
   }
 `;
 
 export const row4P = css`
   font-size: 20px;
-  @media (max-width: 800px) {
-    font-size: 18px;
+  @media (max-width: 500px) {
+    font-size: 15px;
+  }
+  @media (max-width: 300px) {
+    font-size: 10px;
   }
 `;

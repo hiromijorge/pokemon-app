@@ -1,5 +1,4 @@
-import React, { createContext, useState, useEffect, useCallback } from "react";
-import { userName } from "../screens/MyPokemonList/style";
+import React, { createContext, useState, useEffect } from "react";
 
 export const Context = createContext();
 
@@ -24,7 +23,7 @@ const Provider = ({ children }) => {
     localStorage.setItem("pokemonTemp", JSON.stringify(tempPokemonData));
     localStorage.setItem("checkStatus", JSON.stringify(checkStatus));
     localStorage.setItem("pokemonData", JSON.stringify(state));
-  }, [tempPokemonData, checkStatus, checkName]);
+  }, [tempPokemonData, checkStatus, checkName, state]);
 
   const onCatchPokemon = (
     pokemonName,
@@ -62,7 +61,6 @@ const Provider = ({ children }) => {
   const deletePokemon = (userName) => {
     var yow = state.filter((item) => item.userName !== userName);
     setState(yow);
-    console.log(yow);
   };
 
   const resetName = () => {

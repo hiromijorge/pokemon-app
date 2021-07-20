@@ -11,6 +11,7 @@ import * as GET_POKEMONS from "../../api/get-pokemon-detail";
 import * as style from "./style";
 import images from "../../constants/index";
 
+export const testQuery = GET_POKEMONS.getPokemonDetails_Query;
 const PokemonDetailPage = () => {
   const { onCatchPokemon } = useContext(PokemonContext);
   const { catchPokemon } = images;
@@ -37,14 +38,16 @@ const PokemonDetailPage = () => {
         </div>
 
         <div className="row2" css={style.row2}>
-          {data.pokemon.types.map((item) => (
-            <p css={style.row2P}>{item.type.name}</p>
+          {data.pokemon.types.map((item, index) => (
+            <div key={index} data-testid="pokemon-types">
+              <p css={style.row2P}>{item.type.name}</p>
+            </div>
           ))}
         </div>
 
         <div className="row3" css={style.row3}>
-          {data.pokemon.moves.map((item) => (
-            <div css={style.innerRow3}>
+          {data.pokemon.moves.map((item, index) => (
+            <div key={index} css={style.innerRow3} data-testid="pokemon-moves">
               <p css={style.pokemonMove}>{item.move.name}</p>
             </div>
           ))}

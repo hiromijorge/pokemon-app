@@ -22,6 +22,8 @@ describe("Navbar-Links", () => {
     const navbar = getByTestId("navbar");
     const home = getByTestId("home-link");
 
+    fireEvent.click(home);
+
     expect(container.innerHTML).toMatch("Home");
     expect(history.location.pathname).toBe("/");
     expect(navbar).toContainElement(home);
@@ -34,7 +36,6 @@ describe("Navbar-Links", () => {
 
     fireEvent.click(pokemonListLink);
     expect(history.location.pathname).toBe("/pokemonlist");
-    // expect(container.innerHTML).toMatch("Pokemon List");
     expect(navbar).toContainElement(pokemonListLink);
   });
 });

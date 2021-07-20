@@ -6,7 +6,7 @@ export const base = css`
 
 export const container = css`
   max-width: 1300px;
-  min-height: 720px;
+  min-height: 750px;
   width: 100%;
   margin: auto;
   overflow: hidden;

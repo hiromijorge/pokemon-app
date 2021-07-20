@@ -52,19 +52,18 @@ const MyPokemonListPage = () => {
     variables: gqlVariables,
   });
 
-  if (loading) return <div>Loading products...</div>;
+  if (loading) return null;
   if (error) return `Error! ${error.message}`;
 
   return (
     <div className="base" css={style.base}>
-      <h1 data-testid="title" css={style.title}>
-        Pokemon List
-      </h1>
+      <h1 css={style.title}>Pokemon List</h1>
       <div className="container" css={style.container}>
         <div className="row" css={style.row}>
           {data.pokemons.results.map((pokemon) => {
             return (
               <Link
+                data-testid="pokemon-card"
                 to={`/pokemondetail/${pokemon.name}`}
                 css={style.link}
                 key={pokemon.id}
@@ -95,18 +94,27 @@ const MyPokemonListPage = () => {
               disabled
               onClick={() => handleBtnPress("prev")}
               css={style.btnDisabled}
+              data-testid="btn-prev"
             >
               &#8249;
             </button>
           ) : (
-            <button onClick={() => handleBtnPress("prev")} css={style.btn}>
+            <button
+              onClick={() => handleBtnPress("prev")}
+              css={style.btn}
+              data-testid="btn-prev"
+            >
               &#8249;
             </button>
           )}
         </div>
-        <p>{page}</p>
+        <p data-testid="page-flag">{page}</p>
         <div className="button-next" css={style.btnInnerContainer}>
-          <button onClick={() => handleBtnPress("next")} css={style.btn}>
+          <button
+            onClick={() => handleBtnPress("next")}
+            css={style.btn}
+            data-testid="btn-next"
+          >
             &#8250;
           </button>
         </div>

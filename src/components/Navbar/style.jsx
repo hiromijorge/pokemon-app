@@ -19,7 +19,7 @@ export const navbar = css`
 `;
 
 export const homeLogo = css`
-  height: 50px;
+  height: 60px;
   @media (max-width: 400px) {
     height: 40px;
   }

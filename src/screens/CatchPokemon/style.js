@@ -25,6 +25,7 @@ export const pokemonName = css`
 
 export const container = css`
   max-width: 100%;
+  min-height: 750px;
   background: radial-gradient(#fff, #ef6079ff);
   padding: 80px 0px;
 `;
@@ -167,4 +168,10 @@ export const pokemonImageTwo = css`
 
 export const titleTwo = css`
   color: green;
+  @media (max-width: 600px) {
+    font-size: 30px;
+  }
+  @media (max-width: 400px) {
+    font-size: 25px;
+  }
 `;
